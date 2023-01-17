@@ -12,7 +12,7 @@ struct Selection: View {
         NavigationStack {
             VStack{
                 Spacer()
-                Text("USG IOS과정")
+                Text("USG iOS과정")
                     .font(.system(size: 50))
                     .bold()
                     .foregroundColor(.white)

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct kim01: View {
+    @AppStorage("UsrID") var UsrID: String = UserDefaults.standard.string(forKey: "UserID") ?? ""
+    @AppStorage("isLogIn") var isLogIn: Bool = UserDefaults.standard.bool(forKey: "isLogIn")
+    
     @State var showTitle: Int = 3
     @State var alertOn: Bool = false
     
@@ -15,10 +18,6 @@ struct kim01: View {
     @State var feature: Bool = false
     @State var WWDC: Bool = false
     @State var TT: Bool = false
-    
-    
-    @State var Login: Bool = false
-    private var email: String? 
     
     var body: some View {
         TabView(selection: $showTitle) {
@@ -39,7 +38,7 @@ struct kim01: View {
                 }.tag(2)
             NavigationStack {
                 List {
-                    if Login {
+                    if isLogIn {
                         Section{
                             VStack{
                                 Text("Ahn ByeongUk")
@@ -47,7 +46,7 @@ struct kim01: View {
                                     .font(.system(size: 15))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.top,5)
-                                Text("wookis112@gmail.com")
+                                Text(UsrID)
                                     .accentColor(.secondary)
                                     .font(.system(size: 12))
                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -58,12 +57,11 @@ struct kim01: View {
                         //MARK: - confirmationDialog
                         Section{
                             Button("로그인") {
-                                print("로그인")
                                 self.alertOn = true
                             }.confirmationDialog("로그인", isPresented: $alertOn) {
-                                if email != nil {
-                                    Button("wookis112@gmail.com") {
-                                        Login = true
+                                if UsrID != "" {
+                                    Button(UsrID) {
+                                        isLogIn = true
                                     }
                                 }
                                 NavigationLink {
@@ -74,10 +72,6 @@ struct kim01: View {
                             } message: {
                                 Text("기존 iCloud 계정을 사용하여 로그인하거나 다른 Apple ID를 사용하십시오.")
                             }
-                            
-                            //.alert(title:Text("로그인위한"), isPresented: $showTitle) {
-                            //Alert(title: Text("로그인"))
-                            //}
                         } footer: {
                             Text("Apple Developer 계정 등을 관리하려면 Apple ID로 로그인하십시오")
                         }
@@ -113,7 +107,7 @@ struct kim01: View {
                     } footer: {
                         Text("계정, 공지, WWDC 등에 대한 업데이트 수신 방법을 사용자화하십시오.")
                     }
-                    if Login {
+                    if isLogIn {
                         Section{
                             VStack{
                                 Text("Ahn ByeongUk")
@@ -121,7 +115,7 @@ struct kim01: View {
                                     .font(.system(size: 15))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.top,5)
-                                Text("wookis112@gmail.com")
+                                Text(UsrID)
                                     .accentColor(.secondary)
                                     .font(.system(size: 12))
                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -132,19 +126,19 @@ struct kim01: View {
                         }
                         Section{
                             Button("로그아웃"){
-                                self.Login = false
+                                isLogIn = false
                             }
                                 .accentColor(.red)
                         }
                     }
                 }.navigationTitle("계정")
                 //.navigationBarTitleDisplayMode(.inline)
-                
             }
             .tabItem {
                 Image(systemName: "person.crop.circle.fill")
                 Text("계정")
-        }.tag(3)
+        }
+            .tag(3)
             Text("감사합니다.")
                 .tabItem {
                     Image(systemName: "magnifyingglass")
