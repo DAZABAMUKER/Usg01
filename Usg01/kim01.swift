@@ -47,10 +47,10 @@ struct kim01: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.top,5)
                                 Text(UsrID)
-                                    .accentColor(.secondary)
                                     .font(.system(size: 12))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.bottom, 5)
+                                    .foregroundColor(.secondary)
                             }
                         }
                     } else {
@@ -116,7 +116,7 @@ struct kim01: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.top,5)
                                 Text(UsrID)
-                                    .accentColor(.secondary)
+                                    .foregroundColor(.secondary)
                                     .font(.system(size: 12))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.bottom, 5)

@@ -49,13 +49,13 @@ struct kim01_1: View {
                                 HStack{
                                     Text("비밀번호")
                                         .bold()
-                                    TextField("비밀번호", text: $APw)
+                                    SecureField("비밀번호", text: $APw)
                                         .autocapitalization(.none)
                                         .disableAutocorrection(true)
                                         .padding(.leading,20)
                                         .onSubmit {
                                             self.sheeet = false
-                                            isLogIn = true
+                                            isLogIn = UsrID == "" ? false : true
                                         }
                                 }
                             }
