@@ -18,21 +18,21 @@ struct kim01: View {
     
     
     @State var Login: Bool = false
-    private var email: String?
+    private var email: String? 
     
     var body: some View {
         TabView(selection: $showTitle) {
-            Text("안녕하세요")
+            Text("안녕하세요.")
                 .tabItem {
                     Image(systemName: "star.fill")
                     Text("새로운 발견")
                 }.tag(0)
-            Text("안녕하세요")
+            Text("반갑습니다.")
                 .tabItem {
                     Image(systemName: "rectangle.stack.fill")
                     Text("둘러보기")
                 }.tag(1)
-            Text("안녕하세요")
+            Text("행복하세요.")
                 .tabItem {
                     Image(systemName: "swift")
                     Text("WWDC")
@@ -55,6 +55,7 @@ struct kim01: View {
                             }
                         }
                     } else {
+                        //MARK: - confirmationDialog
                         Section{
                             Button("로그인") {
                                 print("로그인")
@@ -65,7 +66,10 @@ struct kim01: View {
                                         Login = true
                                     }
                                 }
-                                Button("Apple ID로 로그인") {
+                                NavigationLink {
+                                    kim01_1()
+                                } label: {
+                                    Text("Apple ID로 로그인")
                                 }
                             } message: {
                                 Text("기존 iCloud 계정을 사용하여 로그인하거나 다른 Apple ID를 사용하십시오.")
@@ -141,7 +145,7 @@ struct kim01: View {
                 Image(systemName: "person.crop.circle.fill")
                 Text("계정")
         }.tag(3)
-            Text("안녕하세요")
+            Text("감사합니다.")
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("검색")

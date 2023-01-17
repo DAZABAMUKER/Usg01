@@ -14,6 +14,7 @@
 		037DD02D29756E7300CD2816 /* 김은영01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DD02C29756E7300CD2816 /* 김은영01.swift */; };
 		037DD02F29756E9F00CD2816 /* kim01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DD02E29756E9F00CD2816 /* kim01.swift */; };
 		037DD031297574D700CD2816 /* kim01-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DD030297574D700CD2816 /* kim01-1.swift */; };
+		03D04FC629767E87000519EF /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D04FC529767E87000519EF /* Selection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		037DD02C29756E7300CD2816 /* 김은영01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "김은영01.swift"; sourceTree = "<group>"; };
 		037DD02E29756E9F00CD2816 /* kim01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kim01.swift; sourceTree = "<group>"; };
 		037DD030297574D700CD2816 /* kim01-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "kim01-1.swift"; sourceTree = "<group>"; };
+		03D04FC529767E87000519EF /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
+		03D04FC72976A669000519EF /* 246x0w.webp */ = {isa = PBXFileReference; lastKnownFileType = file; name = 246x0w.webp; path = ../../../Downloads/246x0w.webp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				03432B352970285900B64DD6 /* Usg01App.swift */,
+				03D04FC529767E87000519EF /* Selection.swift */,
 				03432B372970285900B64DD6 /* ContentView.swift */,
 				03432B392970285B00B64DD6 /* Assets.xcassets */,
+				03D04FC72976A669000519EF /* 246x0w.webp */,
 				03432B3B2970285B00B64DD6 /* Preview Content */,
 				037DD02E29756E9F00CD2816 /* kim01.swift */,
 				037DD030297574D700CD2816 /* kim01-1.swift */,
@@ -146,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D04FC629767E87000519EF /* Selection.swift in Sources */,
 				037DD02F29756E9F00CD2816 /* kim01.swift in Sources */,
 				03432B382970285900B64DD6 /* ContentView.swift in Sources */,
 				037DD02D29756E7300CD2816 /* 김은영01.swift in Sources */,
