@@ -31,7 +31,7 @@ struct kim01: View {
                     Image(systemName: "rectangle.stack.fill")
                     Text("둘러보기")
                 }.tag(1)
-            Text("행복하세요.")
+            ContentView()
                 .tabItem {
                     Image(systemName: "swift")
                     Text("WWDC")
@@ -78,34 +78,34 @@ struct kim01: View {
                     }
                     
                     Section{
-                        NavigationLink {
-                            List() {
-                                Section {
-                                    Toggle(isOn: $news) {
-                                        Text("News Highlights")
+                            NavigationLink {
+                                List() {
+                                    Section {
+                                        Toggle(isOn: $news) {
+                                            Text("News Highlights")
+                                        }
+                                        Toggle(isOn: $feature) {
+                                            Text("Featured Stories")
+                                        }
+                                        Toggle(isOn: $WWDC) {
+                                            Text("WWDC")
+                                        }
+                                        Toggle(isOn: $TT) {
+                                            Text("Tech Talks")
+                                        }
+                                    } footer: {
+                                        Text("Apple ID로 Apple Developer 앱에 로그인하고 알림을 활성화한 모든 기기로 알림이 전송됩니다")
+                                            .foregroundColor(.secondary)
                                     }
-                                    Toggle(isOn: $feature) {
-                                        Text("Featured Stories")
-                                    }
-                                    Toggle(isOn: $WWDC) {
-                                        Text("WWDC")
-                                    }
-                                    Toggle(isOn: $TT) {
-                                        Text("Tech Talks")
-                                    }
-                                } footer: {
-                                    Text("Apple ID로 Apple Developer 앱에 로그인하고 알림을 활성화한 모든 기기로 알림이 전송됩니다")
-                                        .foregroundColor(.secondary)
-                                }
                                     .navigationTitle("알림")
                                     .navigationBarTitleDisplayMode(.inline)
-                            }.foregroundColor(.black)
-                            
-                        } label: {
-                            Text("알림")
-                        }
+                                }.foregroundColor(.black)
+                                
+                            } label: {
+                                Text("알림")
+                            }
                     } footer: {
-                        Text("계정, 공지, WWDC 등에 대한 업데이트 수신 방법을 사용자화하십시오.")
+                            Text("계정, 공지, WWDC 등에 대한 업데이트 수신 방법을 사용자화하십시오.")
                     }
                     if isLogIn {
                         Section{

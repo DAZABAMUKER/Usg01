@@ -21,7 +21,7 @@ struct Selection: View {
                 HStack{
                     Spacer()
                     NavigationLink {
-                        ContentView()
+                        EmptyView()
                     } label: {
                         VStack{
                             ZStack{
