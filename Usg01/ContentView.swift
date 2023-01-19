@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var lock: Bool = false
-    
+    @Binding var Closs: Bool
     var body: some View {
         VStack {
             Image(systemName: lock ? "heart.circle" : "heart.circle.fill")
@@ -20,6 +20,9 @@ struct ContentView: View {
                 }
                 .font(.system(size: lock ? 50 : 20))
             Text(lock ? "잠김": "풀림")
+            Button("back") {
+                Closs = false
+            }
 
 
         }
@@ -29,6 +32,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView( Closs: .constant(true))
     }
 }

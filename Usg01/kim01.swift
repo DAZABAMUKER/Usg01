@@ -13,6 +13,7 @@ struct kim01: View {
     
     @State var showTitle: Int = 3
     @State var alertOn: Bool = false
+    @State var alertOun: Bool = false
     
     @State var news: Bool = false
     @State var feature: Bool = false
@@ -23,7 +24,6 @@ struct kim01: View {
     @State var inputs: String = ""
     
     @State var moddal: Bool = false
-    
     var body: some View {
             TabView(selection: $showTitle) {
                 Text("안녕하세요.")
@@ -36,7 +36,7 @@ struct kim01: View {
                         Image(systemName: "rectangle.stack.fill")
                         Text("둘러보기")
                     }.tag(1)
-                ContentView()
+                ContentView(Closs: .constant(true))
                     .tabItem {
                         Image(systemName: "swift")
                         Text("WWDC")
@@ -110,6 +110,11 @@ struct kim01: View {
                                 } label: {
                                     Text("알림")
                                 }
+                                .onAppear(){
+                                    if UsrID != "" {
+                                        isLogIn = true
+                                    }
+                                }
                             } footer: {
                                 Text("계정, 공지, WWDC 등에 대한 업데이트 수신 방법을 사용자화하십시오.")
                             }
@@ -126,15 +131,10 @@ struct kim01: View {
                             }
                             Section {
                                 Button("모달"){
-                                    self.moddal = true
+                                    self.alertOun = true
                                 }
-                                .sheet(isPresented: $moddal) {
-                                    NavigationStack{
-                                        Text("모달입니다")
-                                            .navigationTitle(Text("Modal Sheet"))
-                                            .navigationBarItems( trailing: Button("닫기"){self.moddal = false})
-                                            
-                                    }
+                                .confirmationDialog("모달", isPresented: $alertOun) {
+                                    
                                 }
                             }
                             if isLogIn {
