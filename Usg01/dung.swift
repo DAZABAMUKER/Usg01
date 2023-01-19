@@ -25,6 +25,10 @@ struct dung: View {
     @State var On:Bool = false
     @State var isOn:Bool = false
     
+    //@Binding var giveData: String 
+    
+    
+    
     var body: some View {
         TabView(selection: $showTitle) {
             Text("안녕하세요.")

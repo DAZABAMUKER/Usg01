@@ -19,135 +19,172 @@ struct kim01: View {
     @State var WWDC: Bool = false
     @State var TT: Bool = false
     
+    @State var datas: [String] = []
+    @State var inputs: String = ""
+    
     var body: some View {
-        TabView(selection: $showTitle) {
-            Text("안녕하세요.")
-                .tabItem {
-                    Image(systemName: "star.fill")
-                    Text("새로운 발견")
-                }.tag(0)
-            Text("반갑습니다.")
-                .tabItem {
-                    Image(systemName: "rectangle.stack.fill")
-                    Text("둘러보기")
-                }.tag(1)
-            ContentView()
-                .tabItem {
-                    Image(systemName: "swift")
-                    Text("WWDC")
-                }.tag(2)
-            NavigationStack {
-                List {
-                    if isLogIn {
-                        Section{
-                            VStack{
-                                Text("Ahn ByeongUk")
-                                    .bold()
-                                    .font(.system(size: 15))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.top,5)
-                                Text(UsrID)
-                                    .font(.system(size: 12))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.bottom, 5)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                    } else {
-                        //MARK: - confirmationDialog
-                        Section{
-                            Button("로그인") {
-                                self.alertOn = true
-                            }.confirmationDialog("로그인", isPresented: $alertOn) {
-                                if UsrID != "" {
-                                    Button(UsrID) {
-                                        isLogIn = true
-                                    }
-                                }
-                                NavigationLink {
-                                    kim01_1()
-                                } label: {
-                                    Text("Apple ID로 로그인")
-                                }
-                            } message: {
-                                Text("기존 iCloud 계정을 사용하여 로그인하거나 다른 Apple ID를 사용하십시오.")
-                            }
-                        } footer: {
-                            Text("Apple Developer 계정 등을 관리하려면 Apple ID로 로그인하십시오")
-                        }
-                    }
-                    
-                    Section{
-                            NavigationLink {
-                                List() {
-                                    Section {
-                                        Toggle(isOn: $news) {
-                                            Text("News Highlights")
-                                        }
-                                        Toggle(isOn: $feature) {
-                                            Text("Featured Stories")
-                                        }
-                                        Toggle(isOn: $WWDC) {
-                                            Text("WWDC")
-                                        }
-                                        Toggle(isOn: $TT) {
-                                            Text("Tech Talks")
-                                        }
-                                    } footer: {
-                                        Text("Apple ID로 Apple Developer 앱에 로그인하고 알림을 활성화한 모든 기기로 알림이 전송됩니다")
+            TabView(selection: $showTitle) {
+                Text("안녕하세요.")
+                    .tabItem {
+                        Image(systemName: "star.fill")
+                        Text("새로운 발견")
+                    }.tag(0)
+                Text("반갑습니다.")
+                    .tabItem {
+                        Image(systemName: "rectangle.stack.fill")
+                        Text("둘러보기")
+                    }.tag(1)
+                ContentView()
+                    .tabItem {
+                        Image(systemName: "swift")
+                        Text("WWDC")
+                    }.tag(2)
+                NavigationStack {
+                    ZStack{
+                        List {
+                            if isLogIn {
+                                Section{
+                                    VStack{
+                                        Text("Ahn ByeongUk")
+                                            .bold()
+                                            .font(.system(size: 15))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .padding(.top,5)
+                                        Text(UsrID)
+                                            .font(.system(size: 12))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .padding(.bottom, 5)
                                             .foregroundColor(.secondary)
                                     }
-                                    .navigationTitle("알림")
-                                    .navigationBarTitleDisplayMode(.inline)
-                                }.foregroundColor(.black)
-                                
-                            } label: {
-                                Text("알림")
+                                }
+                            } else {
+                                //MARK: - confirmationDialog
+                                Section{
+                                    Button("로그인") {
+                                        self.alertOn = true
+                                    }.confirmationDialog("로그인", isPresented: $alertOn) {
+                                        if UsrID != "" {
+                                            Button(UsrID) {
+                                                isLogIn = true
+                                            }
+                                        }
+                                        NavigationLink {
+                                            kim01_1()
+                                        } label: {
+                                            Text("Apple ID로 로그인")
+                                        }
+                                    } message: {
+                                        Text("기존 iCloud 계정을 사용하여 로그인하거나 다른 Apple ID를 사용하십시오.")
+                                    }
+                                } footer: {
+                                    Text("Apple Developer 계정 등을 관리하려면 Apple ID로 로그인하십시오")
+                                }
                             }
-                    } footer: {
-                            Text("계정, 공지, WWDC 등에 대한 업데이트 수신 방법을 사용자화하십시오.")
-                    }
-                    if isLogIn {
-                        Section{
-                            VStack{
-                                Text("Ahn ByeongUk")
-                                    .bold()
-                                    .font(.system(size: 15))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.top,5)
-                                Text(UsrID)
-                                    .foregroundColor(.secondary)
-                                    .font(.system(size: 12))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.bottom, 5)
+                            
+                            Section{
+                                NavigationLink {
+                                    List() {
+                                        Section {
+                                            Toggle(isOn: $news) {
+                                                Text("News Highlights")
+                                            }
+                                            Toggle(isOn: $feature) {
+                                                Text("Featured Stories")
+                                            }
+                                            Toggle(isOn: $WWDC) {
+                                                Text("WWDC")
+                                            }
+                                            Toggle(isOn: $TT) {
+                                                Text("Tech Talks")
+                                            }
+                                        } footer: {
+                                            Text("Apple ID로 Apple Developer 앱에 로그인하고 알림을 활성화한 모든 기기로 알림이 전송됩니다")
+                                                .foregroundColor(.secondary)
+                                        }
+                                        .navigationTitle("알림")
+                                        .navigationBarTitleDisplayMode(.inline)
+                                    }.foregroundColor(.black)
+                                    
+                                } label: {
+                                    Text("알림")
+                                }
+                            } footer: {
+                                Text("계정, 공지, WWDC 등에 대한 업데이트 수신 방법을 사용자화하십시오.")
                             }
-                        } header: {
-                            Text("팀")
+                            //MARK: - 리이오2번째
+                            Section {
+                                ForEach(self.datas, id: \.self){ dats in
+                                    NavigationLink{
+                                        Text(dats)
+                                    } label:{
+                                        Text(dats)
+                                        
+                                    }
+                                }
+                            }
+                            if isLogIn {
+                                Section{
+                                    VStack{
+                                        Text("Ahn ByeongUk")
+                                            .bold()
+                                            .font(.system(size: 15))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .padding(.top,5)
+                                        Text(UsrID)
+                                            .foregroundColor(.secondary)
+                                            .font(.system(size: 12))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .padding(.bottom, 5)
+                                    }
+                                } header: {
+                                    Text("팀")
+                                }
+                                Section{
+                                    Button("로그아웃"){
+                                        isLogIn = false
+                                    }
+                                    .accentColor(.red)
+                                }
+                            }
+                        }.navigationTitle("계정")
+                        //.navigationBarTitleDisplayMode(.inline)
+                        
+                        VStack{
+                            Spacer()
+                            TextField("입력하세요", text: $inputs)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                                .padding(10)
+                                .font(.system(size: 20))
+                                .background(.white)
+                                .onSubmit {
+                                    datas.append(self.inputs)
+                                    self.inputs = ""
+                                }
+                            Button("추가"){
+                                datas.append(self.inputs)
+                                self.inputs = ""
+                            }
+                            //.background(.red)
+                            .buttonStyle(.borderedProminent)
                         }
-                        Section{
-                            Button("로그아웃"){
-                                isLogIn = false
-                            }
-                                .accentColor(.red)
-                        }
+                        //.background(.red)
                     }
-                }.navigationTitle("계정")
-                //.navigationBarTitleDisplayMode(.inline)
-            }
-            .tabItem {
-                Image(systemName: "person.crop.circle.fill")
-                Text("계정")
-        }
-            .tag(3)
-            Text("감사합니다.")
+                }
                 .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("검색")
-                }.tag(4)
-        }.onAppear(){
-            UITabBar.appearance().backgroundColor = .white
-        }
-        
+                    Image(systemName: "person.crop.circle.fill")
+                    Text("계정")
+                }
+                .tag(3)
+                Text("감사합니다.")
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("검색")
+                    }.tag(4)
+            }.onAppear(){
+                UITabBar.appearance().backgroundColor = .white
+            }
+            
     }
 }
 

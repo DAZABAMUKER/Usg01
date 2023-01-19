@@ -28,7 +28,6 @@ struct kim01_1: View {
                 .sheet(isPresented: $sheeet) {
                     NavigationStack {
                         VStack{
-                            //List{
                                 VStack{
                                     Text("Apple ID")
                                         .font(.system(size: 30))
@@ -68,8 +67,8 @@ struct kim01_1: View {
                             }
                             .listStyle(.plain)
                             .environment(\.defaultMinListRowHeight,60)
-                            .frame(height: self.On ? 225 : 165)
-                            
+                            .frame(height: self.On ? 226 : 165)
+                            .scrollDisabled(true)
                             Button("Apple ID가 없거나 잊어버렸습니까?"){
                                 self.isOn = true
                             }.alert("타이틀", isPresented: $isOn, actions: {
@@ -103,7 +102,7 @@ struct kim01_1: View {
                                 .foregroundColor(.secondary)
                             Spacer()
                         }
-                        //.background(.secondary)
+                        //.background(.cyan)
                         .navigationBarItems(trailing: Button("다음"){
                             On = true
                             if On  && APw != "" {
