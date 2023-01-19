@@ -134,7 +134,13 @@ struct kim01: View {
                                     self.alertOun = true
                                 }
                                 .confirmationDialog("모달", isPresented: $alertOun) {
-                                    
+                                    Button("로긴") {
+                                        self.alertOun = false
+                                        self.moddal = true
+                                    }
+                                    .sheet(isPresented: $moddal) {
+                                        ContentView(Closs: $moddal)
+                                    }
                                 }
                             }
                             if isLogIn {
