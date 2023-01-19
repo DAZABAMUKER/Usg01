@@ -11,7 +11,7 @@ import SwiftUI
 struct Usg01App: App {
     var body: some Scene {
         WindowGroup {
-            dung()
+            Selection()
         }
     }
 }

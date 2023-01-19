@@ -16,6 +16,7 @@
 		037DD031297574D700CD2816 /* kim01-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DD030297574D700CD2816 /* kim01-1.swift */; };
 		03D04FC629767E87000519EF /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D04FC529767E87000519EF /* Selection.swift */; };
 		03D0503429780006000519EF /* dung.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D0503329780003000519EF /* dung.swift */; };
+		03D05038297925F3000519EF /* tttst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D05037297925F3000519EF /* tttst.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +28,9 @@
 		037DD02C29756E7300CD2816 /* 김은영01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "김은영01.swift"; sourceTree = "<group>"; };
 		037DD02E29756E9F00CD2816 /* kim01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kim01.swift; sourceTree = "<group>"; };
 		037DD030297574D700CD2816 /* kim01-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "kim01-1.swift"; sourceTree = "<group>"; };
-		03CAF5042976B210002CEE2E /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		03D04FC529767E87000519EF /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		03D0503329780003000519EF /* dung.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dung.swift; sourceTree = "<group>"; };
+		03D05037297925F3000519EF /* tttst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tttst.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +47,6 @@
 		03432B292970285900B64DD6 = {
 			isa = PBXGroup;
 			children = (
-				03CAF5042976B210002CEE2E /* MyPlayground.playground */,
 				03432B342970285900B64DD6 /* Usg01 */,
 				03432B332970285900B64DD6 /* Products */,
 			);
@@ -71,6 +71,7 @@
 				037DD02E29756E9F00CD2816 /* kim01.swift */,
 				037DD030297574D700CD2816 /* kim01-1.swift */,
 				03D0503329780003000519EF /* dung.swift */,
+				03D05037297925F3000519EF /* tttst.swift */,
 			);
 			path = Usg01;
 			sourceTree = "<group>";
@@ -155,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D04FC629767E87000519EF /* Selection.swift in Sources */,
+				03D05038297925F3000519EF /* tttst.swift in Sources */,
 				037DD02F29756E9F00CD2816 /* kim01.swift in Sources */,
 				03D0503429780006000519EF /* dung.swift in Sources */,
 				03432B382970285900B64DD6 /* ContentView.swift in Sources */,
