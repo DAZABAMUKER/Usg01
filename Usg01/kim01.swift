@@ -19,8 +19,10 @@ struct kim01: View {
     @State var WWDC: Bool = false
     @State var TT: Bool = false
     
-    @State var datas: [String] = []
+    @State var datas: [String] = ["리이오","링고", "영", "테드"]
     @State var inputs: String = ""
+    
+    @State var moddal: Bool = false
     
     var body: some View {
             TabView(selection: $showTitle) {
@@ -119,6 +121,19 @@ struct kim01: View {
                                     } label:{
                                         Text(dats)
                                         
+                                    }
+                                }
+                            }
+                            Section {
+                                Button("모달"){
+                                    self.moddal = true
+                                }
+                                .sheet(isPresented: $moddal) {
+                                    NavigationStack{
+                                        Text("모달입니다")
+                                            .navigationTitle(Text("Modal Sheet"))
+                                            .navigationBarItems( trailing: Button("닫기"){self.moddal = false})
+                                            
                                     }
                                 }
                             }
