@@ -31,7 +31,7 @@ struct kim01: View {
                         Image(systemName: "star.fill")
                         Text("새로운 발견")
                     }.tag(0)
-                Text("반갑습니다.")
+                problem()
                     .tabItem {
                         Image(systemName: "rectangle.stack.fill")
                         Text("둘러보기")
@@ -131,16 +131,10 @@ struct kim01: View {
                             }
                             Section {
                                 Button("모달"){
-                                    self.alertOun = true
+                                    self.moddal = true
                                 }
-                                .confirmationDialog("모달", isPresented: $alertOun) {
-                                    Button("로긴") {
-                                        self.alertOun = false
-                                        self.moddal = true
-                                    }
-                                    .sheet(isPresented: $moddal) {
-                                        ContentView(Closs: $moddal)
-                                    }
+                                .sheet(isPresented: $moddal) {
+                                    ContentView(Closs: $moddal)
                                 }
                             }
                             if isLogIn {
