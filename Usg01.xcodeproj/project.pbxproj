@@ -11,6 +11,7 @@
 		03432B382970285900B64DD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03432B372970285900B64DD6 /* ContentView.swift */; };
 		03432B3A2970285B00B64DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03432B392970285B00B64DD6 /* Assets.xcassets */; };
 		03432B3D2970285B00B64DD6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03432B3C2970285B00B64DD6 /* Preview Assets.xcassets */; };
+		0350C87F2987D19300463BDF /* getMov.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350C87E2987D19300463BDF /* getMov.swift */; };
 		037DD02D29756E7300CD2816 /* 김은영01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DD02C29756E7300CD2816 /* 김은영01.swift */; };
 		037DD02F29756E9F00CD2816 /* kim01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DD02E29756E9F00CD2816 /* kim01.swift */; };
 		037DD031297574D700CD2816 /* kim01-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037DD030297574D700CD2816 /* kim01-1.swift */; };
@@ -26,6 +27,8 @@
 		03432B372970285900B64DD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		03432B392970285B00B64DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03432B3C2970285B00B64DD6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0350C87E2987D19300463BDF /* getMov.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMov.swift; sourceTree = "<group>"; };
+		0350C8802987D74200463BDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		037DD02C29756E7300CD2816 /* 김은영01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "김은영01.swift"; sourceTree = "<group>"; };
 		037DD02E29756E9F00CD2816 /* kim01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kim01.swift; sourceTree = "<group>"; };
 		037DD030297574D700CD2816 /* kim01-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "kim01-1.swift"; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		03432B342970285900B64DD6 /* Usg01 */ = {
 			isa = PBXGroup;
 			children = (
+				0350C8802987D74200463BDF /* Info.plist */,
 				03432B352970285900B64DD6 /* Usg01App.swift */,
 				03D04FC529767E87000519EF /* Selection.swift */,
 				03432B372970285900B64DD6 /* ContentView.swift */,
@@ -72,6 +76,7 @@
 				03432B3B2970285B00B64DD6 /* Preview Content */,
 				037DD02E29756E9F00CD2816 /* kim01.swift */,
 				037DD030297574D700CD2816 /* kim01-1.swift */,
+				0350C87E2987D19300463BDF /* getMov.swift */,
 				03D0503329780003000519EF /* dung.swift */,
 				03D05037297925F3000519EF /* tttst.swift */,
 				03F6395529796F1D00B658CB /* problem.swift */,
@@ -165,6 +170,7 @@
 				03D0503429780006000519EF /* dung.swift in Sources */,
 				03432B382970285900B64DD6 /* ContentView.swift in Sources */,
 				037DD02D29756E7300CD2816 /* 김은영01.swift in Sources */,
+				0350C87F2987D19300463BDF /* getMov.swift in Sources */,
 				037DD031297574D700CD2816 /* kim01-1.swift in Sources */,
 				03432B362970285900B64DD6 /* Usg01App.swift in Sources */,
 			);
@@ -298,6 +304,7 @@
 				DEVELOPMENT_TEAM = CRJ3674QVG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Usg01/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +334,7 @@
 				DEVELOPMENT_TEAM = CRJ3674QVG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Usg01/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
