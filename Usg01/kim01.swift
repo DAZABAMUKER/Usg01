@@ -191,7 +191,7 @@ struct kim01: View {
                     Text("계정")
                 }
                 .tag(3)
-                Text("감사합니다.")
+                chiarSeller()
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                         Text("검색")

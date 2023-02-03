@@ -9,12 +9,22 @@ import SwiftUI
 
 struct tttst: View {
     var body: some View {
-        Form{
-            Text("텍스트")
-            Button("sss") {
-                
-            }.buttonStyle(.plain)
-            //Text("입니다.")
+        VStack{
+            /*
+            Text("안녕하세요, 세상!")
+                .background(.green)
+            Text("Hello, World!")
+                .background(.green)
+                .padding()
+                .border(.black)
+             */
+            Image("fim")
+                //.resizable()
+                //.frame(width: 480, height: 360)
+                .clipShape(Rectangle().size(width: 480, height: 480/192*108).offset(x: 0, y: 180 - 240/192*108))
+                .frame(width: 480, height: 480/192*108)
+
+                .border(.green)
         }
     }
 }

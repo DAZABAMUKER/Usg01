@@ -18,6 +18,7 @@
 		03D04FC629767E87000519EF /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D04FC529767E87000519EF /* Selection.swift */; };
 		03D0503429780006000519EF /* dung.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D0503329780003000519EF /* dung.swift */; };
 		03D05038297925F3000519EF /* tttst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D05037297925F3000519EF /* tttst.swift */; };
+		03EA75BD298D25E70081124A /* chiarSeller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA75BC298D25E70081124A /* chiarSeller.swift */; };
 		03F6395629796F1D00B658CB /* problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F6395529796F1D00B658CB /* problem.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		03D04FC529767E87000519EF /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		03D0503329780003000519EF /* dung.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dung.swift; sourceTree = "<group>"; };
 		03D05037297925F3000519EF /* tttst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tttst.swift; sourceTree = "<group>"; };
+		03EA75BC298D25E70081124A /* chiarSeller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chiarSeller.swift; sourceTree = "<group>"; };
 		03F6395529796F1D00B658CB /* problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = problem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				03D0503329780003000519EF /* dung.swift */,
 				03D05037297925F3000519EF /* tttst.swift */,
 				03F6395529796F1D00B658CB /* problem.swift */,
+				03EA75BC298D25E70081124A /* chiarSeller.swift */,
 			);
 			path = Usg01;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				03D0503429780006000519EF /* dung.swift in Sources */,
 				03432B382970285900B64DD6 /* ContentView.swift in Sources */,
 				037DD02D29756E7300CD2816 /* 김은영01.swift in Sources */,
+				03EA75BD298D25E70081124A /* chiarSeller.swift in Sources */,
 				0350C87F2987D19300463BDF /* getMov.swift in Sources */,
 				037DD031297574D700CD2816 /* kim01-1.swift in Sources */,
 				03432B362970285900B64DD6 /* Usg01App.swift in Sources */,
