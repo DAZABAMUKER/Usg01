@@ -49,8 +49,7 @@ struct chiarSeller: View {
                 
                 Text("구매하기")
                     .foregroundColor(.white)
-                    .background(Rectangle().cornerRadius(8).foregroundColor(.green).padding(-8).padding(.horizontal,-8))
-                
+                    .background(Rectangle().cornerRadius(8).foregroundColor(.green).padding(-8).padding(.horizontal,-8))   
             }
             .padding(.top,20)
         }
@@ -90,10 +89,6 @@ struct chiarSeller: View {
             .padding(.trailing, 20)
             info
         }
-        
-        
-        
-        
     }
 }
 

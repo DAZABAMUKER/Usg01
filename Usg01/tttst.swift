@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+var heights: CGFloat = 180
 struct tttst: View {
     var body: some View {
         VStack{
@@ -18,13 +18,13 @@ struct tttst: View {
                 .padding()
                 .border(.black)
              */
-            Image("fim")
-                //.resizable()
-                //.frame(width: 480, height: 360)
-                .clipShape(Rectangle().size(width: 480, height: 480/192*108).offset(x: 0, y: 180 - 240/192*108))
-                .frame(width: 480, height: 480/192*108)
+            Image("pig")
+                .resizable()
+                .frame(width: heights/9*16, height: heights/9*12)
+                .clipShape(Rectangle().size(width: heights/9*16, height: heights).offset(x: 0, y: heights/6))
+                .frame(width: heights/9*16, height: heights)
 
-                .border(.green)
+                .border(.red)
         }
     }
 }
