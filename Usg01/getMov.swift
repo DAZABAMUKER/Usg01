@@ -12,10 +12,12 @@ struct getMov: View {
     @State var inputVal = ""
     var body: some View {
         VStack{
-            TextField( "", text: $inputVal)
+            TextField( "장르 검색", text: $inputVal)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .background(.red)
+                .background(border)
+                .padding(.horizontal, 40)
+                .padding(.vertical, 10)
                 .onSubmit {
                     GetResponse()
                 }
@@ -40,7 +42,7 @@ struct getMov: View {
             }
              */
 
-        }
+        }.background(.indigo)
     }
     
     
@@ -65,6 +67,24 @@ struct getMov: View {
             }
         }
         task.resume()
+    }
+    
+    var border: some View {
+        ZStack{
+            RoundedRectangle(cornerRadius: 20)
+                .frame(height: 40)
+                .padding(-20)
+                .foregroundColor(Color(UIColor(red: 67/255, green: 66/255, blue: 66/255, alpha: 0.2)))
+            RoundedRectangle(cornerRadius: 20)
+                .strokeBorder(LinearGradient(gradient: .init(
+                    colors: [
+                        Color(red: 1, green: 112 / 255.0, blue: 0),
+                        Color(red: 226 / 255.0, green: 247 / 255.0, blue: 5 / 255.0)
+                    ]),startPoint: .topLeading,endPoint: .bottomTrailing),lineWidth: 4)
+                .frame(height: 40)
+                .padding(-20)
+            
+        }
     }
 }
 func makeEncode() {
