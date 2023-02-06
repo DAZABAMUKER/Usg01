@@ -9,9 +9,16 @@ import SwiftUI
 
 struct getMov: View {
     @State var respo = [Movie]()
-    
+    @State var inputVal = ""
     var body: some View {
         VStack{
+            TextField( "", text: $inputVal)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .background(.red)
+                .onSubmit {
+                    GetResponse()
+                }
             List(respo, id: \._id) { Rdata in
                 HStack{
                     AsyncImage(url: URL(string: "http://mynf.codershigh.com:8080\(Rdata.image)")){ img in
@@ -23,6 +30,7 @@ struct getMov: View {
                     Text(Rdata.title)
                 }
             }
+            /*
             Button {
                 GetResponse()
                 //makeEncode()
@@ -30,14 +38,16 @@ struct getMov: View {
                 Text("Get")
                     .padding()
             }
+             */
 
         }
     }
     
     
     func GetResponse() {
-        let urlStr = "http://mynf.codershigh.com:8080/api/movies"
-        let url = URL(string: urlStr)!
+        let urlStr = "http://mynf.codershigh.com:8080/api/movies?genre=\(inputVal)"
+        let UrlEncode = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: UrlEncode)!
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { data, URLResponse, error in
             if error != nil || data == nil {
