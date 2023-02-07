@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct getMov: View {
-    @State var respo = [Movie]()
-    @State var inputVal = ""
-    @State var isresultsEmpty = false
-    @Environment(\.dismiss) private var dismiss
+    
+    @State var respo = [Movie]() // 무비 데이터
+    @State var inputVal = "" // 검색어
+    @State var isresultsEmpty = false // 검색 결과
+    @Environment(\.dismiss) private var dismiss // 커스텀 Back 버튼 Back 변수
     
     var body: some View {
         GeometryReader { geometry in
             NavigationView{
                 VStack(spacing: 0){
                     HStack{
+                        //커스텀 Back 버튼
                         Button {
                             dismiss()
                         } label: {
@@ -29,7 +31,9 @@ struct getMov: View {
                         border(geometry)
                             .padding(10)
                     }
+                // 검색 결과 있으면 리스트 그림.
                     if !isresultsEmpty {
+                        //MARK: 리스트
                         List(respo, id: \._id) { Rdata in
                             NavigationLink(destination: detailView(_id: Rdata._id)){
                                 HStack{
@@ -39,15 +43,26 @@ struct getMov: View {
                                             .aspectRatio(contentMode: .fit)
                                             .frame(height: 100)
                                     }
-                                    Text(Rdata.title)
+                                    VStack(alignment: .leading){
+                                        Text(Rdata.title)
+                                            .font(.title2)
+                                            .bold()
+                                            .padding(.bottom, 5)
+                                        HStack{
+                                            //Text("장르: ")
+                                            ForEach(Rdata.genre, id: \.self){ genre in
+                                                Text(genre+".")
+                                            }
+                                        }
+                                    }.padding(5)
                                 }
                             }
                             .preferredColorScheme(.dark)
                         }
-                        //.frame(width: geometry.size.width ,height: geometry.size.height - 120)
                         .listStyle(.plain)
                         .ignoresSafeArea(.all, edges: .bottom)
                         .background(.black)
+                // 검색 결과 검색 결과 없음 전시
                     } else {
                         Text("\n검색 결과 없음.")
                             .foregroundColor(.white)
@@ -60,7 +75,7 @@ struct getMov: View {
         }.navigationBarBackButtonHidden(true)
     }
     
-    
+    //MARK: 영화 장르 검색 데이터 가져오기
     func GetResponse(inputs: String) {
         let urlStr = "http://mynf.codershigh.com:8080/api/movies?genre=\(inputVal)"
         let UrlEncode = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -140,12 +155,8 @@ struct getMov: View {
         }
     }
 }
-func makeEncode() {
-    let datas = Movie(title: "타이틀", _id: "아이디", image: "이미지", genre: ["스릴러"])
-    let encoder = JSONEncoder()
-    let dts = try! encoder.encode(datas)
-    print("dts",dts)
-}
+
+//MARK: Response 디코드
 struct Response: Decodable {
     let message: String
     let data: [Movie]
