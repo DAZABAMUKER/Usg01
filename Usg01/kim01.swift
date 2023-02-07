@@ -26,7 +26,7 @@ struct kim01: View {
     @State var moddal: Bool = false
     var body: some View {
             TabView(selection: $showTitle) {
-                getMov()
+                Text("안녕하세용")
                     .tabItem {
                         Image(systemName: "star.fill")
                         Text("새로운 발견")
@@ -191,7 +191,7 @@ struct kim01: View {
                     Text("계정")
                 }
                 .tag(3)
-                chiarSeller()
+                chairSeller()
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                         Text("검색")
