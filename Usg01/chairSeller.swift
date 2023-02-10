@@ -12,6 +12,8 @@ struct chairSeller: View {
     @State var date = Date()
     @State var isheart: Bool = false
     
+    let hattefjall_image_array = ["hattefjall_1","hattefjall_2","hattefjall_3","hattefjall_4","hattefjall_5"]
+    @State var image_index = 0
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -67,14 +69,18 @@ struct chairSeller: View {
         VStack(){
             //Spacer()
             ZStack{
-                Image("chair01")
+                Image(hattefjall_image_array[image_index])
                     .resizable()
                     .scaledToFit()
                     .frame(height: 200)
                 //.border(.red)
                 HStack{
                     Button {
-                        
+                        if self.image_index == 0{
+                            self.image_index = hattefjall_image_array.count - 1
+                        } else {
+                            self.image_index -= 1
+                        }
                     } label: {
                         Image(systemName: "chevron.left")
                             .resizable()
@@ -85,7 +91,11 @@ struct chairSeller: View {
                     }
                     Spacer()
                     Button {
-                        
+                        if self.image_index == hattefjall_image_array.count - 1 {
+                            self.image_index = 0
+                        } else {
+                            self.image_index += 1
+                        }
                     } label: {
                         Image(systemName: "chevron.right")
                             .resizable()
