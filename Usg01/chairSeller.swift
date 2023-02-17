@@ -12,7 +12,10 @@ struct chairSeller: View {
     @State var date = Date()
     @State var isheart: Bool = false
     
-    let hattefjall_image_array = ["hattefjall_1","hattefjall_2","hattefjall_3","hattefjall_4","hattefjall_5"]
+    let chairImages: [String]
+    let chair: Chair
+    
+    @State var dateClick = false
     @State var image_index = 0
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -61,93 +64,108 @@ struct chairSeller: View {
             }
             purchase()
         }
+        .padding(.vertical,20)
         .padding(.horizontal, 40)
         .padding(.bottom)
         .background(LinearGradient(colors: [Color.brown.opacity(0.4), Color.white], startPoint: .bottom, endPoint: .top))
     }
     var body: some View {
-        VStack(){
-            //Spacer()
-            ZStack{
-                Image(hattefjall_image_array[image_index])
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 200)
-                //.border(.red)
-                HStack{
-                    Button {
-                        if self.image_index == 0{
-                            self.image_index = hattefjall_image_array.count - 1
-                        } else {
-                            self.image_index -= 1
-                        }
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .resizable()
-                            .bold()
-                            .scaledToFit()
-                            .frame(width: 20)
-                            .padding()
-                    }
-                    Spacer()
-                    Button {
-                        if self.image_index == hattefjall_image_array.count - 1 {
-                            self.image_index = 0
-                        } else {
-                            self.image_index += 1
-                        }
-                    } label: {
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .bold()
-                            .scaledToFit()
-                            .frame(width: 20)
-                            .padding()
-                    }
-                }
-            }
-            Text("HATTEFJÄLL")
-                .bold()
-                .font(.title)
-                .italic()
-                .frame(alignment: .center)
-            Text("제조사: IKEA, 디자이너: Monika Mulder")
-                .foregroundColor(.secondary)
-            HStack(spacing: 10){
-                Spacer()
-                Button{
-                    isheart.toggle()
-                } label: {
-                    Image(systemName: isheart ? "heart.fill" : "heart")
+        ScrollView{
+            VStack(){
+                //Spacer()
+                ZStack{
+                    Image(chairImages[image_index])
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 30)
-                        .foregroundColor(.blue)
+                        .frame(height: 300)
+                    //.border(.red)
+                    HStack{
+                        Button {
+                            if self.image_index == 0{
+                                self.image_index = chairImages.count - 1
+                            } else {
+                                self.image_index -= 1
+                            }
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .bold()
+                                .scaledToFit()
+                                .frame(width: 20)
+                                .padding()
+                        }
+                        Spacer()
+                        Button {
+                            if self.image_index == chairImages.count - 1 {
+                                self.image_index = 0
+                            } else {
+                                self.image_index += 1
+                            }
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .bold()
+                                .scaledToFit()
+                                .frame(width: 20)
+                                .padding()
+                        }
+                    }
                 }
-                
-                Image(systemName: "paperplane.circle.fill")
-                    .resizable()
-                    .foregroundColor(.green)
-                    .frame(width: 30,height: 30)
-                Image("myApp")
-                    .resizable()
-                    .clipShape(Circle())
-                    .frame(width: 30,height: 30)
-                Image("kakaoTalk")
-                    .resizable()
-                    .clipShape(Circle())
-                    .frame(width: 30,height: 30)
-            }
-            .padding(.trailing, 20)
-            info
-            Text("\(date, formatter: dateFormatter)")
-            Form {
-                DatePicker("날짜", selection: $date, in: Date()..., displayedComponents: [.date])
-                    .datePickerStyle(.automatic)
-                    .padding()
-                
+                .onAppear(){
+                    print(chairImages)
+                }
+                Text(chair.name.uppercased())
+                    .bold()
+                    .font(.title)
+                    .italic()
+                    .frame(alignment: .center)
+                Text("제조사: \(chair.MFR), 디자이너: \(chair.designer)")
+                    .foregroundColor(.secondary)
+                HStack(spacing: 10){
+                    Spacer()
+                    Button{
+                        isheart.toggle()
+                    } label: {
+                        Image(systemName: isheart ? "heart.fill" : "heart")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 30)
+                            .foregroundColor(.blue)
+                    }
+                    
+                    Image(systemName: "paperplane.circle.fill")
+                        .resizable()
+                        .foregroundColor(.green)
+                        .frame(width: 30,height: 30)
+                    Image("qwe")
+                        .resizable()
+                        .clipShape(Circle())
+                        .frame(width: 30,height: 30)
+                    Image("kakaoTalk")
+                        .resizable()
+                        .clipShape(Circle())
+                        .frame(width: 30,height: 30)
+                }
+                .padding(.trailing, 20)
+                info
+                Button {
+                    self.dateClick = true
+                } label: {
+                    Text("\(date, formatter: dateFormatter)")
+                }
+                if dateClick {
+                    VStack{
+                        DatePicker("날짜", selection: $date, in: Date()..., displayedComponents: [.date])
+                            .datePickerStyle(.wheel)
+                            .padding()
+                        Button("확인"){
+                            self.dateClick = false
+                        }
+                    }
+                }
             }
         }
+        //.border(.red)
     }
 }
 
@@ -169,6 +187,6 @@ struct purchase: View {
 }
 struct chairSeller_Previews: PreviewProvider {
     static var previews: some View {
-        chairSeller()
+        chairSeller(chairImages: chairImageArray().ypperlig, chair: Chair(name: "ypperlig", designer: "코드스하이", MFR: "순양자동차"))
     }
 }
