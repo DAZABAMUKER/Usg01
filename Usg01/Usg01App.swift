@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Usg01App: App {
+    @StateObject var store = Store()
+    
     var body: some Scene {
         WindowGroup {
-            Selection()
+            Selection().environmentObject(store)
         }
     }
 }

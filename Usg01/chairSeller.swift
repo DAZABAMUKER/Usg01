@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct chairSeller: View {
-    
+    @EnvironmentObject var store: Store
     @State var date = Date()
     @State var isheart: Bool = false
     
     let chairImages: [String]
-    let chair: Chair
+    @State var chair: Chair
     
     @State var dateClick = false
     @State var image_index = 0
@@ -124,9 +124,11 @@ struct chairSeller: View {
                 HStack(spacing: 10){
                     Spacer()
                     Button{
-                        isheart.toggle()
+                        chair.isLiked.toggle()
+                        let item = self.chair
+                        store.toggleLike(item: item)
                     } label: {
-                        Image(systemName: isheart ? "heart.fill" : "heart")
+                        Image(systemName: chair.isLiked ? "heart.fill" : "heart")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 30)

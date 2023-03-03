@@ -1,18 +1,19 @@
 //
-//  ChairListView.swift
+//  LIkedView.swift
 //  Usg01
 //
-//  Created by 안병욱 on 2023/02/17.
+//  Created by 안병욱 on 2023/03/03.
 //
 
 import SwiftUI
 
-struct ChairListView: View {
+struct LIkedView: View {
     
     @EnvironmentObject var store: Store
+    
     var body: some View {
-        NavigationStack{
-            List(store.chairs, id: \.id) { chair in
+        List{
+            ForEach(store.chairs.filter{$0.isLiked}, id: \.id) { chair in
                 NavigationLink {
                     chairSeller(chairImages: store.chairsDic[chair.name] ?? [], chair: chair)
                 } label: {
@@ -40,19 +41,8 @@ struct ChairListView: View {
     }
 }
 
-
-
-struct Chair {
-    let id = UUID()
-    let name: String
-    let designer: String
-    let MFR: String
-    var isLiked: Bool = false
-}
-
-
-struct ChairListView_Previews: PreviewProvider {
+struct LIkedView_Previews: PreviewProvider {
     static var previews: some View {
-        ChairListView().environmentObject(Store())
+        LIkedView().environmentObject(Store())
     }
 }
